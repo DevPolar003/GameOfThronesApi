@@ -4,7 +4,15 @@ using System.Text;
 
 namespace MauiApp1.ApiGameOfThrones.Models
 {
-    internal class House
+    public class House
     {
+        private string name;
+        private string slug;
+
+        public House(string name, string slug)
+        {
+            name = name;
+            slug = slug;
+        }
     }
 }
