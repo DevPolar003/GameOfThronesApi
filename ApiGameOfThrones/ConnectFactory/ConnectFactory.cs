@@ -9,16 +9,12 @@ namespace MauiApp1.ApiGameOfThrones.ConnectFactory
 {
     public class ConnectFactory
     {
-        private static readonly string API_BASE_URL = "https://api.gameofthronesquotes.xyz/v1";
-        private HttpClient httpClient;
-
-        public ConnectFactory()
-        {
-            httpClient = new HttpClient();
-        }
+        // The original implementation called the external API at api.gameofthronesquotes.xyz.
+        // For this exercise we provide a local in-memory implementation of the API routes
+        // defined in the repository README. GetAsync routes the request to LocalApi.
 
         /// <summary>
-        /// Realiza uma requisição GET para a API
+        /// Realiza uma requisição GET para a API (local implementation)
         /// </summary>
         /// <param name="endpoint">Endpoint da API (ex: "/random", "/characters")</param>
         /// <returns>Resposta em string JSON ou null se houver erro</returns>
@@ -26,22 +22,12 @@ namespace MauiApp1.ApiGameOfThrones.ConnectFactory
         {
             try
             {
-                string url = $"{API_BASE_URL}{endpoint}";
-                HttpResponseMessage response = await httpClient.GetAsync(url);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    return content;
-                }
-                else
-                {
-                    return null;
-                }
+                // Delegate to the in-process LocalApi to return JSON for known endpoints.
+                return await Task.FromResult(LocalApi.ProcessEndpoint(endpoint));
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Erro na requisição: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Erro na requisição local: {ex.Message}");
                 return null;
             }
         }

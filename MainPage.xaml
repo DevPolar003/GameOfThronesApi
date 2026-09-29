@@ -10,7 +10,6 @@
             Spacing="15"
             VerticalOptions="Start">
 
-            <!-- Título -->
             <Label 
                 Text="Game of Thrones Quotes"
                 Style="{StaticResource Headline}"
@@ -25,7 +24,6 @@
                 TextColor="Gray"
                 HorizontalTextAlignment="Center" />
 
-            <!-- Seção de Entrada -->
             <Frame 
                 BorderColor="#E0E0E0"
                 CornerRadius="10"
@@ -38,7 +36,6 @@
                         FontAttributes="Bold"
                         TextColor="#333" />
 
-                    <!-- Campo de Nome -->
                     <Label 
                         Text="Nome do Personagem"
                         FontSize="12"
@@ -49,7 +46,6 @@
                         PlaceholderColor="LightGray"
                         FontSize="14" />
 
-                    <!-- Campo de Quantidade -->
                     <Label 
                         Text="Quantidade de Frases (1-10)"
                         FontSize="12"
@@ -62,7 +58,7 @@
                         FontSize="14"
                         Text="5" />
 
-                    <!-- Botoões -->
+           
                     <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
                         <Button 
                             x:Name="SearchButton"
@@ -91,7 +87,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Indicador de Carregamento -->
+
             <ActivityIndicator 
                 x:Name="LoadingIndicator"
                 IsRunning="False"
@@ -99,7 +95,7 @@
                 Color="#1f77d4"
                 Scale="1.5" />
 
-            <!-- Mensagem de Status/Erro -->
+       
             <Label 
                 x:Name="ErrorLabel"
                 Text=""
@@ -108,8 +104,6 @@
                 IsVisible="False"
                 Padding="10"
                 BackgroundColor="#FFE0E0" />
-
-            <!-- Seção de Resultados -->
             <Frame 
                 x:Name="ResultsFrame"
                 BorderColor="#E0E0E0"
@@ -159,7 +153,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Informações de API -->
+   
             <Frame 
                 BorderColor="#E8F4F8"
                 CornerRadius="10"
