@@ -1,24 +1,33 @@
-﻿using Android.App;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Text.Json.Serialization;
 
 namespace MauiApp1.ApiGameOfThrones.Models
 {
     public class Character
     {
-        private string name;
-        private string house;
-        private string slug;
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("house")]
+        public string House { get; set; }
+
+        [JsonPropertyName("slug")]
+        public string Slug { get; set; }
+
+        public Character() { }
 
         public Character(string name, string house, string slug)
         {
-            name = name;
-            house = house;
-            slug = slug;
+            Name = name;
+            House = house;
+            Slug = slug;
         }
-    }   
-            
+
+        public override string ToString()
+        {
+            return $"{Name} - Casa {House}";
         }
-       
+    }
+}
